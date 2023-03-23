@@ -21,6 +21,6 @@ spec:
   prune: true
   sourceRef:
     kind: GitRepository
-    name: afgo-test
+    name: argo-test
   targetNamespace: argo-repo-test
   
