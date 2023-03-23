@@ -1,0 +1,14 @@
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: GitRepository
+metadata:
+  name: argo-test
+  namespace: argo-repo-test
+spec:
+  ignore: |
+    #exclude dev directory
+    /dev
+  interval: 30s
+  ref:
+    branch: main
+  url: https://github.com/n-barnes/argo-test
+  
