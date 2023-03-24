@@ -67,12 +67,10 @@ metadata:
   name: application-helm
   namespace: flux-system
 spec:
-  prune: true
   interval: 30s
   chart:
     spec:
       chart: helm
-      prune: true
       sourceRef:
         kind: HelmRepository
         name: application-helm
