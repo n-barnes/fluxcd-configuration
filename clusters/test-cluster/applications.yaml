@@ -35,6 +35,21 @@ spec:
   ref:
     branch: main
   url: https://github.com/n-barnes/test-repo-nosync
+---
+
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+kind: Kustomization
+metadata:
+  name: test-repo-no-sync
+  namespace: flux-system
+spec:
+  interval: 5m0s
+  path: ./deployment
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: test-repo-no-sync
+  targetNamespace: argo-repo-test
   
 ---
 apiVersion: source.toolkit.fluxcd.io/v1beta2 
