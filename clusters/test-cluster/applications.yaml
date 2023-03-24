@@ -50,3 +50,28 @@ spec:
     kind: GitRepository
     name: test-repo-no-sync
   targetNamespace: argo-repo-nosync
+---
+
+apiVersion: source.toolkit.fluxcd.io/v1beta2 
+kind: HelmRepository
+metadata:
+    branch: main
+  interval: 30s
+  url: https://github.com/n-barnes/fluxcd-application-repo
+ ---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: application-helm
+  namespace: flux-system
+spec:
+  prune: true
+  interval: 30s
+  chart:
+    spec:
+      chart: helm
+      sourceRef:
+        kind: HelmRepository
+        name: application-helm
+        namespace: flux-system
+      version: 0.1.0
