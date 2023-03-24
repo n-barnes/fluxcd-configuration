@@ -24,6 +24,19 @@ spec:
     name: argo-test
   targetNamespace: argo-repo-test
 ---
+
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: GitRepository
+metadata:
+  name: test-repo-no-sync
+  namespace: flux-system
+spec:
+  interval: 30s
+  ref:
+    branch: main
+  url: https://github.com/n-barnes/test-repo-nosync
+  
+---
 apiVersion: source.toolkit.fluxcd.io/v1beta2 
 kind: HelmRepository
 metadata:
