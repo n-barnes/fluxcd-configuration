@@ -68,6 +68,10 @@ metadata:
   namespace: flux-system
 spec:
   interval: 30s
+  install:
+    timeout: 10m
+  upgrade:
+    timeout: 10m
   chart:
     spec:
       chart: fluxcd-helm-test
