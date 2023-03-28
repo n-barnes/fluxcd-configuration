@@ -70,7 +70,7 @@ spec:
   interval: 30s
   chart:
     spec:
-      chart: helm
+      chart: fluxcd-helm-test
       sourceRef:
         kind: HelmRepository
         name: fluxcd-helm-test
